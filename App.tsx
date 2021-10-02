@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     // backgroundColor: 'yellow',
     alignItems: 'center',
     justifyContent: 'space-around',
-    alignItems: 'center',
+    // alignItems: 'center',
     // justifyContent: 'space-around',
   },
   search: {
