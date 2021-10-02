@@ -1,10 +1,10 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useEffect, useState } from "react";
 import { StyleSheet, View, FlatList } from "react-native";
-// import Card from "./src/containers/card/card";
-import { Card, Text, Button,SearchBar } from "react-native-elements";
-import { Chip } from "react-native-elements/dist/buttons/Chip";
+import CardComponent from "./src/containers/card/card";
+import { Card, Text, Button,SearchBar,Input } from "react-native-elements";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function App() {
   const [producto, setProducto] = useState([]);
@@ -23,34 +23,29 @@ export default function App() {
   return (
     <>
       {console.log(producto[0])}
-      <StatusBar style="dark" backgroundColor="yellow" hidden={false} translucent={false} />
+      <LinearGradient
+            // Button Linear Gradient
+            colors={['#FAD961',  '#F76B1C']}>
+      <StatusBar style="dark" backgroundColor='#FAD961' hidden={false} translucent={false} />
+        
           <View style={styles.container} >
-            <Text  >hola</Text>
-
+            <Text h2 >Buscador de ML</Text>
+            <Input
+              placeholder='Buscar'
+            />
           </View>
-          <View style={styles.container}>
+          
+          <View >
           <FlatList
             data={producto}
             renderItem={(item) => {
               return (
-                <Card>
-                  <Card.Title>{item.item.title}</Card.Title>
-                  <Card.Divider />
-                  <Card.Image
-                    source={{ uri: `${item.item.thumbnail}` }}
-                    resizeMode="contain"></Card.Image>
-                  <Button
-                    title="Outline button"
-                    type="outline" 
-                    title="Ver publicacion" 
-                    titleStyle={{ color: 'green' }}
-                    />
-                  <Text>{`${item.item.title}`}</Text>
-                </Card>
-              );
+                <CardComponent item={item}/>
+                  );
             }}
           />
         </View>
+      </LinearGradient>
     </>
   );
 }
@@ -60,10 +55,10 @@ const styles = StyleSheet.create({
     // marginTop: "15%",
     // flexDirection: "row",
     // flex: 1,
-    backgroundColor: 'yellow',
-    // alignItems: 'center',
-    // justifyContent: 'space-around',
-    // alignItems: 'center',
+    // backgroundColor: 'yellow',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    alignItems: 'center',
     // justifyContent: 'space-around',
   },
 });
