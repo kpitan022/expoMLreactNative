@@ -1,14 +1,8 @@
-import React, { useCallback } from "react";
-import { StyleSheet,  View } from "react-native";
-// import styles from "./style";
-// import Card from "./src/containers/card/card";
-import { Card, Text, Button,SearchBar } from "react-native-elements";
-import { Chip } from "react-native-elements/dist/buttons/Chip";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import { LinearGradient } from 'expo-linear-gradient';
+import React from "react";
+import { StyleSheet, View } from "react-native";
+import { Card, Text, Button } from "react-native-elements";
 
-
-export default function CardComponent({item}) {
+export default function CardComponent({ item }) {
   return (
     <Card>
       <Card.Title>{item.item.title}</Card.Title>
