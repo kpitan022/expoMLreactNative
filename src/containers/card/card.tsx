@@ -1,12 +1,35 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import styles from "./style";
+import { StyleSheet,  View } from "react-native";
+// import styles from "./style";
+// import Card from "./src/containers/card/card";
+import { Card, Text, Button,SearchBar } from "react-native-elements";
+import { Chip } from "react-native-elements/dist/buttons/Chip";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { LinearGradient } from 'expo-linear-gradient';
 
-export default function Card() {
+
+export default function CardComponent(item) {
   return (
-    <View style={styles.card}>
-      <Text style={styles.text}>card1</Text>
-      <Text style={styles.text}>card2</Text>
-    </View>
+    <Card>
+      <Card.Title>{item.item.title}</Card.Title>
+      <Card.Divider />
+      <Card.Image
+        source={{ uri: `${item.item.thumbnail}` }}
+        resizeMode="contain"></Card.Image>
+      <View
+        backgroundColor='yellow'
+        padding={20} >
+
+        <Text>{`${item.item.title}`}</Text>
+      </View>
+      <Button
+        title="Outline button"
+        type="outline"
+        title="Ver publicacion"
+        titleStyle={{ color: '#F76B1C' }}
+      />
+    </Card>
+
+
   );
 }
